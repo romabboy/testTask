@@ -1,0 +1,73 @@
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.main {
+    flex: 1 1 auto;
+}
+
+.main__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+.main__introducement p {
+    font-size: 20px;
+    text-align: center;
+}
+
+form.main__form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+form.main__form>.mb-3>label {
+    text-align: center;
+    font-weight: 700;
+    width: 100%;
+}
+
+form.main__form>.mb-3>.form-control {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.footer {
+    height: 56px;
+    background-color: #2b3035;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer p {
+    margin: 0;
+}

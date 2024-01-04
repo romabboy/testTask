@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'client_app/css/main.css' %}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      {% block header %}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'main:home' %}">TestTask</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="{% url 'main:home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Check email</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Change data</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      {% endblock %}
+      {% block main %}
+        <main class="main">
+          <div class="main__container container">
+            <div class="main__introducement">
+              <p>Hello my name is Roman</p>
+              <p>This web page was created to verify your e-mail, store and modify stored data</p>
+              <p>In this task I used verified service <a href="https://hunter.io/api-documentation/v2">hunter.io</a></p>
+              <p>To use this web application properly, You need to provide an api key from <a href="https://hunter.io/api-documentation/v2">hunter.io</a></p>
+              <form action="post" class="main__form">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">API KEY</label>
+                  <input autocomplete="off" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </form>
+            </div>
+          </div>
+        </main>
+      {% endblock %}
+      {% block footer %}
+        <footer class="footer">
+          <p>2024</p>
+        </footer>
+      {% endblock %}
+    </div>
+  </body>
+</html>
