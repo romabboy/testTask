@@ -25,6 +25,12 @@
                   <a class="nav-link" href="#">Check email</a>
                 </li>
                 <li class="nav-item">
+                  <a class="nav-link" href="#">Domain search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Email finder</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="#">Change data</a>
                 </li>
               </ul>
@@ -37,13 +43,15 @@
           <div class="main__container container">
             <div class="main__introducement">
               <p>Hello my name is Roman</p>
-              <p>This web page was created to verify your e-mail, store and modify stored data</p>
+              <p>This web page was created to verify your e-mail, search email on website, store and modify stored data</p>
               <p>In this task I used verified service <a href="https://hunter.io/api-documentation/v2">hunter.io</a></p>
               <p>To use this web application properly, You need to provide an api key from <a href="https://hunter.io/api-documentation/v2">hunter.io</a></p>
-              <form action="post" class="main__form">
+              <form method="POST" action="{% url 'main:home' %}" class="main__form">
+                {% csrf_token %}
                 <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">API KEY</label>
-                  <input autocomplete="off" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <label for="api_key" class="form-label">API KEY</label>
+                  {{form.api_key}}                  
+                  {{form.user}}                  
                 </div>
                 <button type="submit" class="btn btn-dark">Submit</button>
               </form>
