@@ -5,7 +5,7 @@ This script is used to handle client side requests.
 Author: Roman
 """
 
-from typing import Dict, Optional, TypeVar
+from typing import Dict, Optional, TypeVar, Type
 
 from client_app.forms import CheckDomainForm, CheckEmailForm, UsersApiKeyForm
 from client_app.models import DomainJson, MyUser, UsersApiKey, UsersJson
@@ -128,7 +128,7 @@ class ChangeDomain(DetailView):
     pk_url_kwarg = 'pk'
 
 
-def error_404_view(request: HttpRequest, exception) -> HttpResponse:
+def error_404_view(request: HttpRequest, exception: Type[BaseException]) -> HttpResponse:
     """Handle error 404."""
     return render(request, 'client_app/error_404.html', {'message': 'Page not found'})
 
