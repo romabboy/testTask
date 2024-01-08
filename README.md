@@ -7,7 +7,7 @@ This Python package serves as a wrapper for interacting with the [Hunter.io](htt
 Use the package manager pip to install all requirements
 
 ```bash
-pip install -r requirement.txt
+pip install -r requirements.txt
 ```
 Also, you need to perform some database-related tasks:
 ```bash
