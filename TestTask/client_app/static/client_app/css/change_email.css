@@ -1,0 +1,33 @@
+.change-email{
+    margin-top: 20px;
+}
+
+.change-email textarea{
+    width: 100%;
+    height: 100%;
+
+}
+.popoup_message {
+    display: none;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    position: absolute;
+    font-size: 20px;
+    color: white;    
+}
+.error{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.accept{
+    background-color: rgba(0, 255, 85, 0.5);
+
+}
+
+.popoup_message.show{
+    display: block;
+    top: 0%;
+
+}
