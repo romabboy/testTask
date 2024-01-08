@@ -25,3 +25,5 @@ urlpatterns = [
     path('api/', include('api_client_app.urls')),
     path('', include('client_app.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler404 = 'client_app.views.error_404_view'
