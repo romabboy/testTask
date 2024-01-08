@@ -105,7 +105,7 @@ class ChangeData(TemplateView):
 
             response: HttpResponse = render(request, 'client_app/change_data.html', context)
         else:
-            response: HttpResponse = render(request, 'client_app/api_required.html')
+            response: HttpResponse = render(request, 'client_app/change_data.html')
 
         return response
 
