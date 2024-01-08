@@ -1,0 +1,45 @@
+{% extends 'client_app/main.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'client_app/css/check_domain.css' %}" />
+{% endblock %}
+
+{% block main %}
+  <div class="main__domain-check domain-check container">
+    <div class="popup_message"></div>
+    <form method="POST" name="domain_check" action="#" class="main__form">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="{{ form.domain.id_for_label }}" class="form-label">{{ form.domain.label }}</label>
+        {{ form.domain }}
+      </div>
+      <button type="submit" class="btn btn-dark">Check</button>
+    </form>
+    <div class="domain-check__result">
+        <div class="error">
+            Something went wrong with changing json
+        </div>
+        <div class="domain-check__content">
+
+        </div>
+        <div class="api__buttons">
+            <button class="api__save btn__save">Save</button>
+            <button class="api__change btn__change">Change</button>
+            <button class="api__change btn__del">Del</button>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    let api_check_domain = '{% url 'api:domain_check' %}'
+    let api_save_domain = '{% url 'api:domain_save' %}'
+    let csrf_token = '{% csrf_token %}'
+
+    let current_url = '{{ request.build_absolute_uri }}'
+
+</script>
+<script src="{% static 'client_app/js/domain_check.js' %}"></script>
+{% endblock %}

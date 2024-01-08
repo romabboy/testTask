@@ -1,0 +1,127 @@
+.main__domain-check {
+    display: flex;
+    height: 100%;
+}
+
+.domain-check {
+    padding: 20px 0;
+}
+
+.domain-check>.main__form {
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    justify-content: flex-start;
+    flex: 1 0 30%;
+    padding: 50px 10px;
+    align-self: flex-start;
+    margin-right: 10px;
+}
+
+
+.domain-check__result {
+    flex: 0 1 70%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+
+}
+
+.domain-check__result .error{
+    display: none;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0.5);
+    font-size: 20px;
+    color: white;    
+}
+
+.domain-check__result .accept{
+    display: none;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    position: absolute;
+    background-color: rgba(0, 255, 85, 0.5);
+    font-size: 20px;
+    color: white;    
+}
+
+.domain-check__result .error.show{
+    display: block;
+    top: 0%;
+
+}
+
+
+.domain-check__content {
+
+    flex: 1 1 auto;
+}
+.domain-check__content textarea{
+    height: 100%;
+    width: 100%;
+}
+.domain-check__content ul li{
+    display: flex;
+}
+
+.domain-check__content ul li p{
+    margin:0 10px 0 0 ;
+}
+
+.domain-check__content ul{
+}
+
+.api__buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.api__buttons button{
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+}
+
+
+.api__save {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.btn__change {
+    background-color:rgba(255, 255, 0, 0.5);
+}
+.btn__del {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.popup_message{
+    display: none;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    position: absolute;
+    font-size: 20px;
+    color: white;    
+}
+
+.error{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.accept{
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.popup_message.show{
+    display: block;
+}
