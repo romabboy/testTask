@@ -6,19 +6,32 @@ Author: Roman
 
 from client_app.models import UsersApiKey
 from django import forms
-from django.db import models
 
 
 class UsersApiKeyForm(forms.ModelForm):
-    """This class create html form based on UserApiKey models."""
+    """Form for UsersApiKey model."""
 
     class Meta:
-        """This is Meta class to UserApiKeyForm."""
+        """Meta class for UsersApiKeyForm."""
 
-        model: models.Model = UsersApiKey
-        fields = ['user', 'api_key']
-        widgets = {
-            'user':forms.TextInput(attrs={'class':'form-control','autocomplete':'off','hidden':True}),
-            'api_key':forms.TextInput(attrs={'class':'form-control','autocomplete':'off'}),
+        model: UsersApiKey = UsersApiKey
+        fields: list = ['api_key']
+        widgets: dict = {
+            'api_key': forms.TextInput(attrs={'class': 'form-control', 'autocomplete': 'off'}),
         }
-    
+
+
+class CheckEmailForm(forms.Form):
+    """Form for email checking."""
+
+    email: forms.EmailField = forms.EmailField(
+        label='Email', widget=forms.EmailInput(attrs={'class': 'form-control', 'autocomplete': 'off'}),
+    )
+
+
+class CheckDomainForm(forms.Form):
+    """Form for domain checking."""
+
+    domain: forms.CharField = forms.CharField(
+        label='Domain', widget=forms.TextInput(attrs={'class': 'form-control', 'autocomplete': 'off'}),
+    )
