@@ -1,0 +1,18 @@
+{% extends 'client_app/main.html' %}
+
+{% block main %}
+  <div class="main__check-email check-email container">
+  <div class="api_not_exist">
+    <p>You need to provide api key for this operation</p>
+    <form method="POST" action="{% url 'main:home' %}" class="main__form">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="api_key" class="form-label">API KEY</label>
+        {{ form.api_key }}
+        {{ form.user }}
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+  </div>
+  </div>
+{% endblock %}
