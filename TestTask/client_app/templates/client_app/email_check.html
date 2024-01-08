@@ -1,0 +1,44 @@
+{% extends 'client_app/main.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'client_app/css/check_email.css' %}" />
+{% endblock %}
+
+{% block main %}
+  <div class="main__check-email check-email container">
+    <form method="POST" name="email_check" action="#" class="main__form">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+        {{ form.email }}
+      </div>
+      <button type="submit" class="btn btn-dark">Check</button>
+    </form>
+    <div class="check-email__result">
+        <div class="error">
+            Something went wrong with changing json
+        </div>
+        <div class="check-email__content">
+
+        </div>
+        <div class="api__buttons">
+            <button class="api__save btn__save">Save</button>
+            <button class="api__change btn__change">Change</button>
+            <button class="api__change btn__del">Del</button>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    let api_check_email = '{% url 'api:email_check' %}'
+    let api_save_email = '{% url 'api:email_save' %}'
+    let csrf_token = '{% csrf_token %}'
+
+    let current_url = '{{ request.build_absolute_uri }}'
+
+</script>
+<script src="{% static 'client_app/js/email_check.js' %}"></script>
+{% endblock %}
