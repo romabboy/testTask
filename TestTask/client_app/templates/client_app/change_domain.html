@@ -1,0 +1,33 @@
+{% extends 'client_app/main.html' %}
+{% load static %}
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'client_app/css/change_email.css' %}" />
+  <link rel="stylesheet" href="{% static 'client_app/css/check_email.css' %}" />
+{% endblock %}
+
+{% block main %}
+  <div class="main__change-email change-email container">
+    <div class="popoup_message">
+      
+    </div>
+    <textarea name="" id="" cols="30" rows="10">
+    </textarea>
+     <div class="api__buttons">
+            <button class="api__save btn__save">Save</button>
+        </div>
+  </div>
+{% endblock %}
+
+{% block script %}
+<script>
+    let api_change_domain = '{% url 'api:domain_change' %}'
+    let csrf_token = '{% csrf_token %}'
+    let current_domain_pk = {{domain.pk}}
+    let current_url = '{{ request.build_absolute_uri }}'
+
+</script>
+{{ domain.domain_json | json_script:"domain-data" }}
+
+<script src="{% static 'client_app/js/change_domain.js' %}"></script>
+{% endblock %}
