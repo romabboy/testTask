@@ -1,0 +1,177 @@
+.main__change-data {
+    height: 100%;
+    padding: 20px 0;
+}
+
+.main__change-data h3{
+    font-weight: 500;
+}
+.change-data {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.container {
+}
+.change-data__api {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex: 1 1 39%;
+    margin-right: 10px;
+}
+
+.api-list {
+    padding: 0;
+}
+
+.api-list li{
+    display: flex;
+}
+.api-list li:not(:last-child){
+    margin-bottom: 10px;
+}
+.api-list li > .api-list__api-key{
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+    
+
+}
+.api-list li button{
+    padding: 5px 10px;
+    border: none;
+    
+}
+
+
+.change-block{
+    flex: 1 1 auto;
+
+}
+.api-list li input{
+    height: 100%;
+    margin-right: 5px;
+    font-size: 20px;
+    border: none;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.15);
+
+}
+
+.api-list li input + button{
+    position: relative;
+    bottom: 4%;
+}
+
+
+.active .api-list__api-key{
+    background-color: rgba(0, 128, 0, 0.192);
+}
+
+.api-list__api-key span{
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.email__list {
+    padding: 0;
+}
+
+.email__list li {
+    display: flex;
+    justify-content: space-between;
+} 
+.email__list li p{
+    font-size: 20px;
+
+}
+
+.email__list .api__buttons button{
+    padding: 5px 10px;
+    border: none;
+}
+
+.email__list .api__buttons a.api__change {
+    padding: 5px 10px;
+    background-color: grey;
+    text-decoration: none;
+    color: black;
+}
+
+.change-data__email {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex: 1 1 100%;
+    margin-top: 10px;
+
+}
+.change-data__domain {
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    flex: 1 1 30%;
+
+}
+.domain__list {
+    padding: 0;
+}
+.domain__list li{
+    display: flex;
+    justify-content: space-between;
+}
+
+.domain__list .api__buttons button{
+    padding: 5px 10px;
+    border: none;
+}
+
+.domain__list  .api__buttons a.api__change {
+    padding: 5px 10px;
+    background-color: grey;
+    text-decoration: none;
+    color: black;
+}
+
+.api__buttons {
+}
+.api__change {
+}
+.btn__change {
+}
+.btn__del {
+}
+
+
+
+
+.error{
+    background-color: rgba(255, 0, 0, 0.5);
+   
+}
+
+.accept{
+    background-color: rgba(0, 255, 85, 0.5);
+}
+.popup_message{
+    display: none;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px;
+    position: fixed;
+    font-size: 20px;
+    color: white;    
+}
+.popup_message.accept.show{
+    display: block;
+    top: 0%;
+
+}
+
+.popup_message.error.show{
+    display: block;
+    top: 0%;
+
+}
+

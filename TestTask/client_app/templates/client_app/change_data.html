@@ -1,0 +1,82 @@
+{% extends "client_app/main.html" %}
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static "client_app/css/change_data.css" %}">
+{% endblock style%}
+
+{% block main %}
+    <div class="main__change-data change-data container">
+        <div class="popup_message"></div>
+        <div class="change-data__api api">
+            <h3>API KEYS</h3>
+            <ul class="api-list">
+                {% for value in user_api %}
+                    {% if value.active %}
+                    <li class="active" data-pk = {{ value.pk }} data-user = {{value.user.pk}}>
+                        <p class="api-list__api-key"><span>{{value.api_key}}</span></p>
+
+                        <div class="api__buttons">
+                            <button class="api__active btn__active">Active</button>
+                            <button class="api__change btn__change">Change</button>
+                            <button class="api__change btn__del">Del</button>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li data-pk = {{value.pk}} data-user = {{value.user.pk}}>
+                        <p class="api-list__api-key"><span>{{value.api_key}}</span></p>
+                        
+                        <div class="api__buttons">
+                            <button class="api__active btn__active">Active</button>
+                            <button class="api__change btn__change">Change</button>
+                            <button class="api__change btn__del">Del</button>
+                        </div>
+                    </li>
+                    {% endif %}
+
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="change-data__domain">
+            <h3>Checked domain</h3>
+            <ul class="domain__list">
+                {% for domain in domains %}
+                    <li data-pk = {{domain.pk}}>
+                        <p>domain: {{domain.domain_json.data.domain}}</p>
+                        <div class="api__buttons">
+                            <a href="{% url 'main:change_domain' domain.pk %}" class ="api__change btn__change">Change</a>
+                            <button class="api__change btn__del">Del</button>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="change-data__email">
+            <h3>Verified emails</h3>
+            <ul class="email__list">
+                {% for email in user_json %}
+                    <li data-pk = {{email.pk}}>
+                        <p>email: {{email.json_response.data.email}}</p>
+                        <p>status: {{email.json_response.data.status}}</p>
+                        <p>score: {{email.json_response.data.score}}</p>
+                        <div class="api__buttons">
+                            <a href="{% url 'main:change_email' email.pk %}" class ="api__change btn__change">Change</a>
+                            <button class="api__change btn__del">Del</button>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+{% endblock main %}
+
+{% block script %}
+    <script>
+        let api_change_api_user = '{% url 'api:users_api_key' %}'
+        let api_change_email = '{% url 'api:email_change' %}'
+        let api_change_domain = '{% url 'api:domain_change' %}'
+        let current_url = '{{ request.build_absolute_uri }}'
+    </script>
+    <script src="{% static 'client_app/js/data_change.js' %}"></script>
+{% endblock script %}
